@@ -1,16 +1,6 @@
-# todo_app
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![alldata](https://github.com/kevinmali/todo_app_flutter/assets/132121875/6a3fb044-01fd-43d9-a2d7-a57a407d967a)
+![Gym](https://github.com/kevinmali/todo_app_flutter/assets/132121875/214e4937-c584-46e2-b8f6-b5ac0d7b2b24)
+![addtask](https://github.com/kevinmali/todo_app_flutter/assets/132121875/a8346823-9e93-4c2e-99b4-4c5a489007e3)
+![password](https://github.com/kevinmali/todo_app_flutter/assets/132121875/3e2996e1-2298-4290-9e57-cd0a4d9c2c33)
+![loginpage](https://github.com/kevinmali/todo_app_flutter/assets/132121875/a5b8beef-caf3-4e22-b9d0-5ed49e340210)
+![splash](https://github.com/kevinmali/todo_app_flutter/assets/132121875/b40f4f7d-4647-4c48-9006-472738c6c3b1)
