@@ -41,6 +41,7 @@ dependencies:
   cloud_firestore:
   google_sign_in:
   syncfusion_flutter_datepicker: ^23.2.6
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:

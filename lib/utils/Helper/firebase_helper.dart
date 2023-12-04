@@ -11,11 +11,10 @@ class CloudFireStoreHelper {
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
   Future<void> addTask({required Map<String, dynamic> data}) async {
-    await firestore
-        .collection("task")
-        .doc(
-            "${AuthHelper.authHelper.auth.currentUser?.email.toString().split("@")[0]}")
-        .set(data);
+    await firestore.collection("task").doc("${DateTime.now()}").set(data);
+    // .doc(
+    //     "${AuthHelper.authHelper.auth.currentUser?.email.toString().split("@")[0]}")
+    // .set(data);
   }
 
   Stream<QuerySnapshot<Map<String, dynamic>>> fetchTask() {

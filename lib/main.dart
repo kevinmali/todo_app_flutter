@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_app/Views/Home_Screen/Home_page.dart';
 
+import 'Views/All_Task_page/all_task.dart';
 import 'Views/Login_page/login_screen.dart';
 import 'Views/sign_page/sign_in_screen.dart';
 import 'Views/splace_screen/splace.dart';
@@ -17,10 +18,11 @@ void main() async {
     debugShowCheckedModeBanner: false,
     theme: ThemeData(useMaterial3: true),
     getPages: [
-      GetPage(name: '/', page: () => Splash()),
+      GetPage(name: '/SPLAS', page: () => Splash()),
       GetPage(name: '/login', page: () => login_page()),
-      GetPage(name: '/home', page: () => Home_Page()),
+      GetPage(name: '/', page: () => Home_Page()),
       GetPage(name: '/sign', page: () => Signup_page()),
+      GetPage(name: '/task', page: () => All_Task()),
     ],
   ));
 }
