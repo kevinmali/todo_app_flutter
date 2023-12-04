@@ -13,8 +13,9 @@ class Home_Page extends StatefulWidget {
 class _Home_PageState extends State<Home_Page> {
   String? detils;
   String? time;
+  String? date;
 
-  TextEditingController textEditingController = TextEditingController();
+  TextEditingController tasktEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -65,7 +66,7 @@ class _Home_PageState extends State<Home_Page> {
                   padding: const EdgeInsets.all(20),
                   child: Container(
                     child: TextFormField(
-                      controller: TextEditingController(),
+                      controller: tasktEditingController,
                       onChanged: (val) {
                         detils = val;
                       },
@@ -87,6 +88,10 @@ class _Home_PageState extends State<Home_Page> {
                       icon: Icon(Icons.calendar_today),
                       tooltip: 'Tap to open date picker',
                       onPressed: () {
+                        showTimePicker(
+                          context: context,
+                          initialTime: TimeOfDay.now(),
+                        );
                         showDatePicker(
                           context: context,
                           initialDate: DateTime.now(),
@@ -101,12 +106,15 @@ class _Home_PageState extends State<Home_Page> {
                         CloudFireStoreHelper.cloudFireStoreHelper
                             .addTask(data: {
                           "task": detils,
+                          "date": date,
                           "time": time,
                         });
                         log("======================================================");
                         log("$detils");
                         log("$time");
+                        log("$date");
                         log("======================================================");
+                        tasktEditingController.clear();
                       },
                       child: Text("Add task")),
                 ),
