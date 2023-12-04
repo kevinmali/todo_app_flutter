@@ -1,0 +1,90 @@
+{
+  "project_info": {
+    "project_number": "664974297230",
+    "project_id": "fir-9203c",
+    "storage_bucket": "fir-9203c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664974297230:android:e13b80a06c7693684861df",
+        "android_client_info": {
+          "package_name": "com.example.chat_app_kevin_revision"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "664974297230-jvg150ssnfpb0nrfrfhpndb6t1ea222c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.chat_app_kevin_revision",
+            "certificate_hash": "8d1469074af15f018634647352b01c2f260d563c"
+          }
+        },
+        {
+          "client_id": "664974297230-8g0038k6lsci76s1ar0h4t95a8jssb1o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHmFM6mteDmnW1lIT58dun__cL6rT9Eug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "664974297230-8g0038k6lsci76s1ar0h4t95a8jssb1o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "664974297230-9rphl3g878nj93uus417hma4pofqmrn4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.chatAppKevinRevision"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664974297230:android:7413ac85c41bd6a44861df",
+        "android_client_info": {
+          "package_name": "com.example.todo_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "664974297230-8g0038k6lsci76s1ar0h4t95a8jssb1o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHmFM6mteDmnW1lIT58dun__cL6rT9Eug"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "664974297230-8g0038k6lsci76s1ar0h4t95a8jssb1o.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "664974297230-9rphl3g878nj93uus417hma4pofqmrn4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.chatAppKevinRevision"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
