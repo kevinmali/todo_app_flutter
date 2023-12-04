@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:todo_app/utils/Helper/firebase_helper.dart';
-import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 
 class Home_Page extends StatefulWidget {
   const Home_Page({super.key});
@@ -12,20 +11,10 @@ class Home_Page extends StatefulWidget {
 }
 
 class _Home_PageState extends State<Home_Page> {
-  List AllTextFields = [];
-  String? task;
+  String? detils;
+  String? time;
 
-  List<TextEditingController> AllController = [];
-
-  @override
-  void initState() {
-    super.initState();
-    AllController.add(TextEditingController());
-    AllController.add(TextEditingController());
-
-    AllTextFields.add(Row());
-    AllTextFields.add(Row());
-  }
+  TextEditingController textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -57,69 +46,69 @@ class _Home_PageState extends State<Home_Page> {
               ),
             ),
           ),
-          SingleChildScrollView(
+          Center(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Text(
+                  "Add Task",
+                  style: TextStyle(
+                    fontSize: 22,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
                 SizedBox(
                   height: 30,
                 ),
-                Container(
-                  padding: EdgeInsets.all(20),
-                  height: 600,
-                  width: 400,
-                  color: Colors.white,
-                  child: SingleChildScrollView(
-                    child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Add Task",
-                            style: TextStyle(
-                              fontSize: 22,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          ...AllTextFields.map(
-                            (e) => getTextFiled(
-                              i: AllTextFields.indexOf(
-                                (e),
-                              ),
-                            ),
-                          ).toList(),
-                          SizedBox(
-                            height: 30,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              setState(
-                                () {
-                                  AllController.add(TextEditingController());
-                                  AllTextFields.add(
-                                      getTextFiled(i: AllTextFields.length));
-                                },
-                              );
-                            },
-                          ),
-                          Center(
-                            child: ElevatedButton(
-                                onPressed: () {
-                                  CloudFireStoreHelper.cloudFireStoreHelper
-                                      .addTask(data: {
-                                    "task": task,
-                                  });
-                                  log("======================================================");
-                                  log("$task");
-                                  log("======================================================");
-                                },
-                                child: Text("Add task")),
-                          ),
-                        ]),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: Container(
+                    child: TextFormField(
+                      controller: TextEditingController(),
+                      onChanged: (val) {
+                        detils = val;
+                      },
+                      decoration: InputDecoration(
+                        hintText: "Add your Task",
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
                   ),
+                ),
+                Container(
+                    height: 80,
+                    width: 300,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      border: Border.all(color: Colors.black),
+                    ),
+                    child: IconButton(
+                      icon: Icon(Icons.calendar_today),
+                      tooltip: 'Tap to open date picker',
+                      onPressed: () {
+                        showDatePicker(
+                          context: context,
+                          initialDate: DateTime.now(),
+                          firstDate: DateTime(2015, 8),
+                          lastDate: DateTime(2101),
+                        );
+                      },
+                    )),
+                Center(
+                  child: ElevatedButton(
+                      onPressed: () {
+                        CloudFireStoreHelper.cloudFireStoreHelper
+                            .addTask(data: {
+                          "task": detils,
+                          "time": time,
+                        });
+                        log("======================================================");
+                        log("$detils");
+                        log("$time");
+                        log("======================================================");
+                      },
+                      child: Text("Add task")),
                 ),
               ],
             ),
@@ -127,54 +116,5 @@ class _Home_PageState extends State<Home_Page> {
         ],
       ),
     );
-  }
-
-  Row getTextFiled({required int i}) {
-    return Row(children: [
-      Expanded(
-        flex: 12,
-        child: TextField(
-          controller: AllController[i],
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            icon: IconButton(
-              icon: Icon(
-                Icons.watch_later,
-                size: 40,
-              ),
-              onPressed: () {
-                showDatePicker(
-                  context: context,
-                  initialDate: DateTime.now(),
-                  firstDate: DateTime(2015, 8),
-                  lastDate: DateTime(2101),
-                );
-              },
-            ),
-            hintText: "  Your Tasks ",
-            hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
-          ),
-        ),
-      ),
-      Expanded(
-        flex: 2,
-        child: IconButton(
-          onPressed: () {
-            setState(
-              () {
-                AllController.removeAt(i);
-                AllTextFields.removeAt(i);
-              },
-            );
-          },
-          icon: Icon(
-            Icons.delete,
-            size: 40,
-          ),
-        ),
-      ),
-    ]);
   }
 }
