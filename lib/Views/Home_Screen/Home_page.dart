@@ -25,6 +25,7 @@ class _Home_PageState extends State<Home_Page> {
         title: Text("To DO App"),
         centerTitle: true,
       ),
+      drawer: Drawer(),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -60,36 +61,45 @@ class _Home_PageState extends State<Home_Page> {
                     },
                     decoration: InputDecoration(
                       hintText: "Add your Task",
-                      border: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                     ),
                   ),
                 ),
               ),
-              Row(
-                children: [
-                  Container(
-                    height: 80,
+              GestureDetector(
+                onTap: () async {
+                  timepick = await showTimePicker(
+                    context: context,
+                    initialTime: TimeOfDay.now(),
+                  );
+                },
+                child: Container(
+                  height: 66,
+                  width: 366,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(20),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: IconButton(
-                      icon: Icon(Icons.calendar_today),
-                      tooltip: 'Tap to open date picker',
-                      onPressed: () async {
-                        timepick = await showTimePicker(
-                          context: context,
-                          initialTime: TimeOfDay.now(),
-                        );
-                      },
+                  child: Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Add Time",
+                          // "${timepick?.hour}:${timepick?.minute}",
+                          style: TextStyle(
+                            color: Colors.black54,
+                            fontSize: 20,
+                          ),
+                        ),
+                        Icon(Icons.calendar_today),
+                      ],
                     ),
                   ),
-                  Text(
-                    "${timepick?.hour}:${timepick?.minute}",
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                  ),
-                ],
+                ),
               ),
               SizedBox(
                 height: 30,

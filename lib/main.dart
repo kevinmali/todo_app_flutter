@@ -18,9 +18,9 @@ void main() async {
     debugShowCheckedModeBanner: false,
     theme: ThemeData(useMaterial3: true),
     getPages: [
-      GetPage(name: '/SPLAS', page: () => Splash()),
+      GetPage(name: '/', page: () => Splash()),
       GetPage(name: '/login', page: () => login_page()),
-      GetPage(name: '/', page: () => Home_Page()),
+      GetPage(name: '/home', page: () => Home_Page()),
       GetPage(name: '/sign', page: () => Signup_page()),
       GetPage(name: '/task', page: () => All_Task()),
     ],
